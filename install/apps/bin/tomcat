@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# tomcat        
+#
+# chkconfig: 345 20 80
+# description:  Start up the Tomcat servlet engine as omega user based on a standard omega install. 
+#               Drop this file in /etc/init.d/
+#               chkconfig --add tomcat
+#               and tomcat will auto start on system startup.
+#               chmod 755 tomcat
+#               And tomcat will auto start upon reboot
+# Source function library.
+. /etc/init.d/functions
+
+
+RETVAL=$?
+CATALINA_HOME="/home/omega/tomcat"
+
+case "$1" in
+ start)
+        if [ -f $CATALINA_HOME/bin/startup.sh ];
+          then
+	    echo $"Starting Tomcat"
+            /bin/su omega $CATALINA_HOME/bin/startup.sh
+        fi
+	;;
+ stop)
+        if [ -f $CATALINA_HOME/bin/shutdown.sh ];
+          then
+	    echo $"Stopping Tomcat"
+            /bin/su omega $CATALINA_HOME/bin/shutdown.sh
+        fi
+ 	;;
+ *)
+ 	echo $"Usage: $0 {start|stop}"
+	exit 1
+	;;
+esac
+
+exit $RETVAL

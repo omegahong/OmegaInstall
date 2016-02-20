@@ -1,0 +1,4 @@
+# ignore all the gz files
+*.gz
+# except the tomcat 
+!*tomcat*.gz
