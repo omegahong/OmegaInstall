@@ -40,7 +40,7 @@ cp $INSTALL_DIR/code/general-error.html $TOMCAT_TARGET_INSTALL_DIRECTORY/webapps
 echo "copy $INSTALL_DIR/code/web.xml $TOMCAT_TARGET_INSTALL_DIRECTORY/conf/web.xml"
 cp $INSTALL_DIR/code/web.xml $TOMCAT_TARGET_INSTALL_DIRECTORY/conf/web.xml
 # change port to 8081
-#sed -i -e 's/8080/8081/g' /home/omega/tomcat/conf/server.xml
+sed -i -e 's/8080/8081/g' /home/omega/tomcat/conf/server.xml
 
 echo "copy $INSTALL_DIR/code/server.xml $TOMCAT_TARGET_INSTALL_DIRECTORY/conf/server.xml"
 cp $INSTALL_DIR/code/server.xml $TOMCAT_TARGET_INSTALL_DIRECTORY/conf/server.xml
